@@ -32,7 +32,7 @@ def dvc_data_hash():
         with open(DVC_POINTER) as f:
             meta = json.load(f)
         return meta["outs"][0]["md5"]
-    except Exception:
+    except (OSError, KeyError, ValueError):
         return "not-tracked"
 
 

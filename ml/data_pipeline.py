@@ -2,6 +2,7 @@
 import pandas as pd
 from sklearn.datasets import load_digits
 
+
 def build_digits_csv(path="data/digits.csv"):
     digits = load_digits()
     df = pd.DataFrame(digits.data, columns=[f"pixel_{i}" for i in range(64)])

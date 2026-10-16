@@ -15,6 +15,9 @@ Two distinct experiments were tracked (one run each):
 | digits-baseline | baseline_rf | 50 | None | 0.9583 | 0.9582 |
 | digits-tuned | tuned_rf | 200 | 12 | 0.9611 | 0.9609 |
 
+Hyperparameters are also stored as JSON configs in `ml/configs/`; runs can be
+reproduced with `python ml/train.py --config ml/configs/<name>.json ...`.
+
 ## What is logged per run
 - `git_commit`: SHA of the training code (reproducibility)
 - `dataset_version`: md5 hash of `data/digits.csv` tracked by DVC

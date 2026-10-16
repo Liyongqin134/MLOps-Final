@@ -9,7 +9,7 @@
 | Version | Tag | Commit | PR | Content |
 |---------|-----|--------|----|---------|
 | v1 | dvc-v1 | 9d202aa | #5 | raw pixel values 0-16 |
-| v2 | dvc-v2 | 2cd4423 | #6 + fix #8 | min-max normalized to [0,1] |
+| v2 | dvc-v2 | 606f90e | #6 + #8 + #11 | global min-max normalized to [0,1], no NaN columns |
 
 - **Reproduce**: `git switch --detach dvc-vX && dvc pull` (verified: v1 max=16.0, v2 max=1.0)
 
@@ -20,7 +20,7 @@
 | Experiment | Run | n_estimators | max_depth | accuracy | f1_weighted |
 |------------|-----|--------------|-----------|----------|-------------|
 | digits-baseline | baseline_rf | 50 | None | 0.9583 | 0.9582 |
-| digits-tuned | tuned_rf | 200 | 12 | 0.9639 | 0.9638 |
+| digits-tuned | tuned_rf | 200 | 12 | 0.9611 | 0.9609 |
 
 - **Logged per run**: `git_commit`, `dataset_version` (DVC md5), hyperparameters,
   `accuracy`, `f1_weighted`, model artifact (`mlflow.sklearn.log_model`)

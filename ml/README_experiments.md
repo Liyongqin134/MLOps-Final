@@ -13,7 +13,7 @@ Two distinct experiments were tracked (one run each):
 | Experiment | Run | n_estimators | max_depth | accuracy | f1_weighted |
 |------------|-----|--------------|-----------|----------|-------------|
 | digits-baseline | baseline_rf | 50 | None | 0.9583 | 0.9582 |
-| digits-tuned | tuned_rf | 200 | 12 | 0.9639 | 0.9638 |
+| digits-tuned | tuned_rf | 200 | 12 | 0.9611 | 0.9609 |
 
 ## What is logged per run
 - `git_commit`: SHA of the training code (reproducibility)
@@ -24,7 +24,7 @@ Two distinct experiments were tracked (one run each):
 
 ## Production decision
 `tuned_rf` is the production-worthy run:
-- higher accuracy (0.9639 vs 0.9583) and higher weighted F1 (0.9638 vs 0.9582)
+- higher accuracy (0.9611 vs 0.9583) and higher weighted F1 (0.9609 vs 0.9582)
 - more trees (200) with a depth cap (12) generalizes better on the test split
 
 ## Optimized metric

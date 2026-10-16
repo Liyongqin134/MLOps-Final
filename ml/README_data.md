@@ -10,7 +10,7 @@ values 0-16), labels 0-9.
 | Version | Tag | Description |
 |---------|-----|-------------|
 | v1 | `dvc-v1` | Raw exported digits dataset (original gray-scale pixel values 0-16), exported by `ml/data_pipeline.py`. |
-| v2 | `dvc-v2` | Improved version: pixel features min-max normalized to [0, 1] for stable training. |
+| v2 | `dvc-v2` | Improved version: pixel features **global** min-max normalized to [0, 1] (`ml/normalize.py`) for stable training; constant all-zero columns stay 0 (no NaN). |
 
 ## Version <-> Commit mapping
 - v1 -> tag `dvc-v1` (check with `git rev-parse dvc-v1`)

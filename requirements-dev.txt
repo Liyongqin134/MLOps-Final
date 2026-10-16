@@ -1,1 +1,5 @@
-#will be filled in phase 2
+pytest
+httpx
+ruff
+dvc[azure]
+mlflow

@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+.pytest_cache/
+.env
+data/
+tests/
+mlruns/
+.coverage
+htmlcov/
+.DS_Store
+requirements-dev.txt

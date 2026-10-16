@@ -1,1 +1,6 @@
-#will be filled in phase 1
+fastapi
+uvicorn
+scikit-learn
+pandas
+joblib
+numpy

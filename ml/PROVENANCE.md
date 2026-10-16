@@ -30,7 +30,7 @@
 ```bash
 git checkout main && dvc pull
 python ml/data_pipeline.py
-python ml/train.py --n-estimators 200 --max-depth 12 --experiment digits-tuned --run-name tuned_rf
+python ml/train.py --config ml/configs/tuned.json --experiment digits-tuned --run-name tuned_rf
 python -m pytest tests -v
 uvicorn app.main:app --port 8000
 ```

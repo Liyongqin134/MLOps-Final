@@ -80,5 +80,12 @@ if __name__ == "__main__":
     parser.add_argument("--max-depth", type=int, default=None)
     parser.add_argument("--experiment", default="digits-experiments")
     parser.add_argument("--run-name", default="rf_run")
+    parser.add_argument("--config", default=None, help="JSON config overriding hyperparameters")
     args = parser.parse_args()
-    train(args.n_estimators, args.max_depth, args.experiment, args.run_name)
+    n_estimators, max_depth = args.n_estimators, args.max_depth
+    if args.config:
+        with open(args.config) as f:
+            cfg = json.load(f)
+        n_estimators = cfg.get("n_estimators", n_estimators)
+        max_depth = cfg.get("max_depth", max_depth)
+    train(n_estimators, max_depth, args.experiment, args.run_name)

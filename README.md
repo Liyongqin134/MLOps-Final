@@ -13,6 +13,7 @@ Handwritten digit recognition API built with DevOps & MLOps practices.
 app/main.py                  # FastAPI app (GET /health, POST /predict)
 ml/data_pipeline.py          # export digits dataset -> data/digits.csv
 ml/train.py                  # train RandomForest + log experiment in MLflow
+ml/configs/                  # baseline.json / tuned.json hyperparameter configs
 ml/registry/model.pkl        # current production model
 ml/README_data.md            # data versioning documentation (DVC)
 ml/README_experiments.md     # experiment tracking documentation (MLflow)

@@ -49,7 +49,7 @@ def run_sync(cmd, cwd=ROOT, env=None):
     """Run a command in the foreground and stream its output."""
     print("$", " ".join(cmd))
     env = dict(os.environ, **(env or {}))
-    proc = subprocess.run(cmd, cwd=cwd, env=env)
+    proc = subprocess.run(cmd, check=False, cwd=cwd, env=env)
     if proc.returncode != 0:
         print(f"[mlops] 命令失败，退出码 {proc.returncode}")
         sys.exit(1)
@@ -69,7 +69,7 @@ def wait_http(url, timeout=60, interval=1.0):
             with urllib.request.urlopen(url, timeout=3) as r:
                 if r.status < 500:
                     return True
-        except Exception:
+        except OSError:
             time.sleep(interval)
     return False
 
@@ -182,11 +182,11 @@ def stop_services():
         try:
             if os.name == "nt":
                 subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"],
-                               capture_output=True, timeout=15)
+                               check=False, capture_output=True, timeout=15)
             else:
-                subprocess.run(["kill", str(pid)], capture_output=True, timeout=15)
+                subprocess.run(["kill", str(pid)], check=False, capture_output=True, timeout=15)
             say(f"已停止 {name}（PID {pid}）")
-        except Exception:
+        except (OSError, subprocess.TimeoutExpired):
             say(f"停止 {name}（PID {pid}）失败，可手动结束该进程")
     if os.path.exists(PID_FILE):
         os.remove(PID_FILE)

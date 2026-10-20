@@ -9,7 +9,6 @@ import random
 
 import joblib
 import numpy as np
-import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -35,7 +34,7 @@ def new_pipeline(canvas):
     bw, bh = x1 - x0 + 1, y1 - y0 + 1
     crop = Image.fromarray(np.uint8(canvas[y0:y1 + 1, x0:x1 + 1]))
     scale = min(6.4 / bw, 6.4 / bh)
-    w8, h8 = max(1, int(round(bw * scale))), max(1, int(round(bh * scale)))
+    w8, h8 = max(1, round(bw * scale)), max(1, round(bh * scale))
     im8 = crop.resize((w8, h8), Image.BILINEAR)
     a8 = np.full((8, 8), 255.0)
     ox, oy = (8 - w8) // 2, (8 - h8) // 2

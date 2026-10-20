@@ -44,8 +44,9 @@ uvicorn app.main:app --port 8000
 ## API
 ```
 GET  /health                  -> {"status": "ok"}
-POST /predict                 -> {"prediction": <digit>}
+POST /predict                 -> {"prediction": <digit>, "confidence": <float 0..1>}
      body: {"pixels": [64 floats in 0..16]}
+     note: pixels 会在服务端除以 16 归一化到 [0,1] 后送入模型（与 v2 训练口径一致）
 ```
 
 ## Testing

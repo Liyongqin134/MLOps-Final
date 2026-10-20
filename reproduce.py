@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """One-click reproduce: train the tuned model, then bring up the visualization stack.
 
 Steps:

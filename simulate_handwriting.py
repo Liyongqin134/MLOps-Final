@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Simulate REAL free-hand writing on the 280x280 canvas using rendered fonts
 (random size / position / font style), then compare accuracy of the OLD
 preprocessing (whole-canvas shrink) vs the NEW one (bbox crop + aspect-preserving
